@@ -1,3 +1,4 @@
+# This is a simple calculator that needs refactoring
 def calc(a,b,op):
     # This function does basic math operations
     if op=='add':
