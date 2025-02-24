@@ -16,6 +16,9 @@ def calc(a,b,op):
             return 'Error: division by zero'
         x=a/b
         return x
+    if op=='square':
+        x=a*a  # ignore b for square operation
+        return x
     return 'Error: invalid operation'
 
 def process_numbers(numbers_list,operation):
@@ -33,6 +36,7 @@ print(f"Addition: {process_numbers(nums,'add')}")
 print(f"Multiplication: {process_numbers(nums,'mul')}")
 print(f"Division: {process_numbers(nums,'div')}")
 print(f"Subtraction: {process_numbers(nums,'sub')}")
+print(f"Square of 5: {calc(5,0,'square')}")
 
 # More examples with edge cases
 print(f"Empty list: {process_numbers([],'add')}")
