@@ -79,6 +79,9 @@ def calc(a,b,op):
     if op=='tanh':
         # Calculate hyperbolic tangent
         return math.tanh(a)  # ignore b for tanh operation
+    if op=='atan':
+        # Calculate arctangent
+        return math.atan(a)  # ignore b for atan operation
     return 'Error: invalid operation'
 
 def process_numbers(numbers_list,operation):
@@ -109,6 +112,7 @@ print(f"e^2: {calc(2,0,'exp')}")
 print(f"sinh(1): {calc(1,0,'sinh')}")
 print(f"cosh(1): {calc(1,0,'cosh')}")
 print(f"tanh(1): {calc(1,0,'tanh')}")
+print(f"atan(1): {calc(1,0,'atan')}")
 
 # More examples with edge cases
 print(f"Empty list: {process_numbers([],'add')}")
@@ -125,3 +129,4 @@ print(f"e^0: {calc(0,0,'exp')}")
 print(f"sinh(0): {calc(0,0,'sinh')}")
 print(f"cosh(0): {calc(0,0,'cosh')}")
 print(f"tanh(0): {calc(0,0,'tanh')}")
+print(f"atan(0): {calc(0,0,'atan')}")
