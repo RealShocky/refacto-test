@@ -47,6 +47,16 @@ def calc(a,b,op):
             return 0
         gcd = calc(a, b, 'gcd')
         return abs(a * b) // gcd
+    if op=='sqrt':
+        # Calculate square root using Newton's method
+        if a < 0:
+            return 'Error: square root not defined for negative numbers'
+        if a == 0:
+            return 0
+        x = a
+        for _ in range(10):  # 10 iterations should be enough for most numbers
+            x = (x + a/x) / 2
+        return x
     return 'Error: invalid operation'
 
 def process_numbers(numbers_list,operation):
@@ -70,6 +80,7 @@ print(f"2 to the power of 3: {calc(2,3,'power')}")
 print(f"Factorial of 5: {calc(5,0,'factorial')}")
 print(f"GCD of 48 and 18: {calc(48,18,'gcd')}")
 print(f"LCM of 15 and 20: {calc(15,20,'lcm')}")
+print(f"Square root of 16: {calc(16,0,'sqrt')}")
 
 # More examples with edge cases
 print(f"Empty list: {process_numbers([],'add')}")
@@ -78,3 +89,4 @@ print(f"Invalid operation: {calc(5,2,'invalid')}")
 print(f"Factorial of negative number: {calc(-1,0,'factorial')}")
 print(f"GCD with zero: {calc(15,0,'gcd')}")
 print(f"LCM with zero: {calc(15,0,'lcm')}")
+print(f"Square root of negative number: {calc(-4,0,'sqrt')}")
