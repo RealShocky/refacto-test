@@ -22,6 +22,11 @@ def calc(a,b,op):
     if op=='cube':
         x=a*a*a  # ignore b for cube operation
         return x
+    if op=='power':
+        x = a
+        for _ in range(b-1):
+            x = x * a
+        return x
     return 'Error: invalid operation'
 
 def process_numbers(numbers_list,operation):
@@ -41,8 +46,9 @@ print(f"Division: {process_numbers(nums,'div')}")
 print(f"Subtraction: {process_numbers(nums,'sub')}")
 print(f"Square of 5: {calc(5,0,'square')}")
 print(f"Cube of 3: {calc(3,0,'cube')}")
+print(f"2 to the power of 3: {calc(2,3,'power')}")
 
 # More examples with edge cases
 print(f"Empty list: {process_numbers([],'add')}")
 print(f"Division by zero: {calc(5,0,'div')}")
-print(f"Invalid operation: {calc(5,2,'power')}")
+print(f"Invalid operation: {calc(5,2,'invalid')}")
