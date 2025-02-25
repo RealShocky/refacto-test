@@ -73,6 +73,9 @@ def calc(a,b,op):
     if op=='sinh':
         # Calculate hyperbolic sine
         return math.sinh(a)  # ignore b for sinh operation
+    if op=='cosh':
+        # Calculate hyperbolic cosine
+        return math.cosh(a)  # ignore b for cosh operation
     return 'Error: invalid operation'
 
 def process_numbers(numbers_list,operation):
@@ -101,6 +104,7 @@ print(f"Absolute value of -42: {calc(-42,0,'abs')}")
 print(f"Natural log of 2.718: {calc(2.718,0,'log')}")
 print(f"e^2: {calc(2,0,'exp')}")
 print(f"sinh(1): {calc(1,0,'sinh')}")
+print(f"cosh(1): {calc(1,0,'cosh')}")
 
 # More examples with edge cases
 print(f"Empty list: {process_numbers([],'add')}")
@@ -115,3 +119,4 @@ print(f"Log of zero: {calc(0,0,'log')}")
 print(f"Log of negative number: {calc(-1,0,'log')}")
 print(f"e^0: {calc(0,0,'exp')}")
 print(f"sinh(0): {calc(0,0,'sinh')}")
+print(f"cosh(0): {calc(0,0,'cosh')}")
