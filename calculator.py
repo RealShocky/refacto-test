@@ -82,6 +82,11 @@ def calc(a,b,op):
     if op=='atan':
         # Calculate arctangent
         return math.atan(a)  # ignore b for atan operation
+    if op=='asin':
+        # Calculate arcsine
+        if abs(a) > 1:
+            return 'Error: arcsine not defined for |x| > 1'
+        return math.asin(a)  # ignore b for asin operation
     return 'Error: invalid operation'
 
 def process_numbers(numbers_list,operation):
@@ -113,6 +118,7 @@ print(f"sinh(1): {calc(1,0,'sinh')}")
 print(f"cosh(1): {calc(1,0,'cosh')}")
 print(f"tanh(1): {calc(1,0,'tanh')}")
 print(f"atan(1): {calc(1,0,'atan')}")
+print(f"asin(0.5): {calc(0.5,0,'asin')}")
 
 # More examples with edge cases
 print(f"Empty list: {process_numbers([],'add')}")
@@ -130,3 +136,4 @@ print(f"sinh(0): {calc(0,0,'sinh')}")
 print(f"cosh(0): {calc(0,0,'cosh')}")
 print(f"tanh(0): {calc(0,0,'tanh')}")
 print(f"atan(0): {calc(0,0,'atan')}")
+print(f"asin(2): {calc(2,0,'asin')}")  # Error case: |x| > 1
