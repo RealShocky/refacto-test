@@ -27,6 +27,15 @@ def calc(a,b,op):
         for _ in range(b-1):
             x = x * a
         return x
+    if op=='factorial':
+        if a < 0:
+            return 'Error: factorial not defined for negative numbers'
+        if a == 0:
+            return 1
+        result = 1
+        for i in range(1, a + 1):
+            result *= i
+        return result
     return 'Error: invalid operation'
 
 def process_numbers(numbers_list,operation):
@@ -47,8 +56,10 @@ print(f"Subtraction: {process_numbers(nums,'sub')}")
 print(f"Square of 5: {calc(5,0,'square')}")
 print(f"Cube of 3: {calc(3,0,'cube')}")
 print(f"2 to the power of 3: {calc(2,3,'power')}")
+print(f"Factorial of 5: {calc(5,0,'factorial')}")
 
 # More examples with edge cases
 print(f"Empty list: {process_numbers([],'add')}")
 print(f"Division by zero: {calc(5,0,'div')}")
 print(f"Invalid operation: {calc(5,2,'invalid')}")
+print(f"Factorial of negative number: {calc(-1,0,'factorial')}")
