@@ -97,6 +97,11 @@ def calc(a,b,op):
         if abs(a) <= 1:
             return 'Error: hyperbolic arccotangent not defined for |x| <= 1'
         return 0.5 * math.log((a + 1)/(a - 1))  # ignore b for acoth operation
+    if op=='asech':
+        # Calculate hyperbolic arcsecant
+        if a <= 0 or a > 1:
+            return 'Error: hyperbolic arcsecant only defined for 0 < x <= 1'
+        return math.log((1 + math.sqrt(1 - a*a))/a)  # ignore b for asech operation
     return 'Error: invalid operation'
 
 def process_numbers(numbers_list,operation):
@@ -131,6 +136,7 @@ print(f"atan(1): {calc(1,0,'atan')}")
 print(f"asin(0.5): {calc(0.5,0,'asin')}")
 print(f"acos(0.5): {calc(0.5,0,'acos')}")
 print(f"acoth(2): {calc(2,0,'acoth')}")
+print(f"asech(0.5): {calc(0.5,0,'asech')}")
 
 # More examples with edge cases
 print(f"Empty list: {process_numbers([],'add')}")
@@ -151,3 +157,5 @@ print(f"atan(0): {calc(0,0,'atan')}")
 print(f"asin(2): {calc(2,0,'asin')}")  # Error case: |x| > 1
 print(f"acos(2): {calc(2,0,'acos')}")  # Error case: |x| > 1
 print(f"acoth(0.5): {calc(0.5,0,'acoth')}")  # Error case: |x| <= 1
+print(f"asech(2): {calc(2,0,'asech')}")  # Error case: x > 1
+print(f"asech(0): {calc(0,0,'asech')}")  # Error case: x <= 0
