@@ -41,6 +41,12 @@ def calc(a,b,op):
         while b:
             a, b = b, a % b
         return abs(a)
+    if op=='lcm':
+        # Calculate Least Common Multiple using GCD
+        if a == 0 or b == 0:
+            return 0
+        gcd = calc(a, b, 'gcd')
+        return abs(a * b) // gcd
     return 'Error: invalid operation'
 
 def process_numbers(numbers_list,operation):
@@ -63,6 +69,7 @@ print(f"Cube of 3: {calc(3,0,'cube')}")
 print(f"2 to the power of 3: {calc(2,3,'power')}")
 print(f"Factorial of 5: {calc(5,0,'factorial')}")
 print(f"GCD of 48 and 18: {calc(48,18,'gcd')}")
+print(f"LCM of 15 and 20: {calc(15,20,'lcm')}")
 
 # More examples with edge cases
 print(f"Empty list: {process_numbers([],'add')}")
@@ -70,3 +77,4 @@ print(f"Division by zero: {calc(5,0,'div')}")
 print(f"Invalid operation: {calc(5,2,'invalid')}")
 print(f"Factorial of negative number: {calc(-1,0,'factorial')}")
 print(f"GCD with zero: {calc(15,0,'gcd')}")
+print(f"LCM with zero: {calc(15,0,'lcm')}")
