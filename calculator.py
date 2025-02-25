@@ -87,6 +87,11 @@ def calc(a,b,op):
         if abs(a) > 1:
             return 'Error: arcsine not defined for |x| > 1'
         return math.asin(a)  # ignore b for asin operation
+    if op=='acos':
+        # Calculate arccosine
+        if abs(a) > 1:
+            return 'Error: arccosine not defined for |x| > 1'
+        return math.acos(a)  # ignore b for acos operation
     return 'Error: invalid operation'
 
 def process_numbers(numbers_list,operation):
@@ -119,6 +124,7 @@ print(f"cosh(1): {calc(1,0,'cosh')}")
 print(f"tanh(1): {calc(1,0,'tanh')}")
 print(f"atan(1): {calc(1,0,'atan')}")
 print(f"asin(0.5): {calc(0.5,0,'asin')}")
+print(f"acos(0.5): {calc(0.5,0,'acos')}")
 
 # More examples with edge cases
 print(f"Empty list: {process_numbers([],'add')}")
@@ -137,3 +143,4 @@ print(f"cosh(0): {calc(0,0,'cosh')}")
 print(f"tanh(0): {calc(0,0,'tanh')}")
 print(f"atan(0): {calc(0,0,'atan')}")
 print(f"asin(2): {calc(2,0,'asin')}")  # Error case: |x| > 1
+print(f"acos(2): {calc(2,0,'acos')}")  # Error case: |x| > 1
